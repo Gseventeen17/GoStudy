@@ -11,6 +11,44 @@ import (
 //var bbb = "hhh"
 //不可用:=
 
+const filename = "a.txt"
+
+func consts() {
+	const (
+		a = 5
+	)
+}
+
+// 枚举，一般也定义为const
+/*func enums() {
+	const (
+		java   = 0
+		python = 1
+		cpp    = 2
+	)
+	fmt.Println(java, python, cpp)
+}*/
+
+func enums() {
+	const (
+		//iota 自增值
+		java = iota
+		python
+		cpp
+	)
+
+	//iota可以参与运算
+	const (
+		zero    = 10 << iota //10*(2的0次方)
+		ten                  //10*(2的1次方)
+		hundred              //10*(2的2次方)
+	)
+
+	fmt.Println(zero, ten, hundred)
+
+	fmt.Println(java, python, cpp)
+}
+
 var (
 	aaa = 100
 	bbb = "hhh"
@@ -59,4 +97,5 @@ func main() {
 	variableShorter()
 	eular()
 	triAngle()
+	enums()
 }
